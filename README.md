@@ -1,523 +1,411 @@
-# 🐉 Contribution Matrix PRO
+# 🐉 Contribution Matrix PRO - Social Edition
+
+```
+    ███   ███   ███   ███   ███         
+   █o█  █o█  █o█  █o█  █o█          
+    ▓     ▓     ▓     ▓     ▓           
+   ╱│╲   ╱│╲   ╱│╲   ╱│╲   ╱│╲         
+   ╱ ╲   ╱ ╲   ╱ ╲   ╱ ╲   ╱ ╲         
+      PLAYERS CONNECTING WORLDWIDE
+```
 
 <div align="center">
 
-![Version](https://img.shields.io/badge/version-3.0-00ff9d?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-4.0_Social-00ff9d?style=for-the-badge)
 ![License](https://img.shields.io/badge/license-MIT-00ff9d?style=for-the-badge)
-![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-00ff9d?style=for-the-badge&logo=javascript)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Players](https://img.shields.io/badge/Active_Players-LIVE-00ff9d?style=for-the-badge)
 
-**An interactive GitHub-style contribution tracker with 15+ advanced features**
+**Transform digital connections into creative expression with real-time player tracking**
 
-[Live Demo](#) • [Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Achievements](#-achievements)
-
-![Contribution Matrix Pro Banner](https://via.placeholder.com/1200x400/0c0c1d/00ff9d?text=Contribution+Matrix+PRO)
+[Features](#-features) • [Installation](#-installation) • [How It Works](#-how-it-works) • [Leaderboard](#-leaderboard)
 
 </div>
 
 ---
 
-## 📋 Table of Contents
+## 🌟 What's New in Social Edition
 
-- [Overview](#-overview)
-- [Features](#-features)
-- [Demo](#-demo)
-- [Installation](#-installation)
-- [Usage Guide](#-usage-guide)
-- [Keyboard Shortcuts](#-keyboard-shortcuts)
-- [Themes](#-themes)
-- [Achievements System](#-achievements-system)
-- [Technical Details](#-technical-details)
-- [Browser Support](#-browser-support)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [Credits](#-credits)
+This isn't just a contribution tracker anymore - it's a **global creative platform** where players connect, compete, and share their artistic patterns!
 
----
+### 🎯 Core Concept
 
-## 🎯 Overview
-
-**Contribution Matrix PRO** is an enhanced, interactive version of GitHub's contribution graph. It transforms the familiar green squares into a creative playground with drawing tools, pattern generators, undo/redo functionality, and an achievement system.
-
-### 🌟 Why Use This?
-
-- **Creative Expression**: Design custom patterns and artwork
-- **GitHub Profile Enhancement**: Export and share your creations
-- **Learning Tool**: Understand contribution patterns visually
-- **Fun & Interactive**: Gamified with achievements and challenges
-- **No Dependencies**: Pure vanilla JavaScript - no frameworks required
+**Digital → Physical Transformation**
+- Write your name on the grid and export it
+- Share your creation on your GitHub profile
+- See how you rank against other players worldwide
+- Turn your contributions into shareable art
 
 ---
 
 ## ✨ Features
 
-### 🎨 Core Features
+### 🔥 NEW: Social Features
 
 | Feature | Description |
 |---------|-------------|
-| **🖌️ Draw Mode** | Click and drag to paint across cells |
-| **↩️ Undo/Redo** | Full history navigation (50 states) |
-| **📥 Export to Image** | Download your creation as PNG |
-| **🎭 3 Themes** | Van_Dragon, Dragonfire, Cybervoid |
-| **💾 Auto-Save** | Never lose your progress |
-| **📊 Real-Time Stats** | Track contributions, streaks, changes |
-| **🏆 10 Achievements** | Unlock rewards for milestones |
-| **🎯 Intensity Selector** | Choose brush strength (0-4) |
-| **⌨️ Keyboard Shortcuts** | Power-user efficiency |
-| **📱 Responsive Design** | Works on all screen sizes |
+| **👤 Username System** | Enter your GitHub username to join the community |
+| **📱 iPhone Notifications** | Beautiful iOS-style achievement popups |
+| **🏆 Global Leaderboard** | Compete with players worldwide in real-time |
+| **✍️ Name Drawing** | Write your name directly on the grid with custom font |
+| **💾 Cloud Sync** | Your progress is saved and shared globally |
+| **📊 Live Stats** | See total players and your rank |
+| **🎨 Personal Exports** | Download with your username watermarked |
 
-### 🎨 Pattern Library (10 Presets)
+### 🎮 Core Features
 
-```
-┌─────────────────────────────────────────────┐
-│  ✓ Checkerboard  ✓ Wave       ✓ Diagonal   │
-│  ✓ Heart         ✓ Smile      ✓ Gradient   │
-│  ✓ Circle        ✓ Border     ✓ Spiral     │
-│  ✓ Cross         ... and more!              │
-└─────────────────────────────────────────────┘
-```
-
-### 🏆 Achievement System
-
-Unlock 10 unique achievements:
-
-- **First Steps**: Make your first contribution
-- **Centurion**: Reach 100 contributions
-- **Full Week**: Fill an entire week
-- **Artist**: Use all 10 patterns
-- **Perfectionist**: Fill all 364 squares
-- **Time Traveler**: Use undo 10 times
-- **Streak Master**: Achieve a 50+ streak
-- **Style Icon**: Try all 3 themes
-- **Archivist**: Save and load a pattern
-- **Dedicated**: Make 500 total changes
-
----
-
-## 🎮 Demo
-
-### Live Preview
-
-👉 **[Play Now](https://your-username.github.io/contribution-matrix-pro/)**
-
-### Screenshots
-
-<details>
-<summary>📸 View Screenshots</summary>
-
-#### Van_Dragon Theme
-![Van Dragon Theme](https://via.placeholder.com/800x500/0c0c1d/00ff9d?text=Van+Dragon+Theme)
-
-#### Draw Mode Active
-![Draw Mode](https://via.placeholder.com/800x500/0c0c1d/00ff9d?text=Draw+Mode+Active)
-
-#### Achievement Unlocked
-![Achievement](https://via.placeholder.com/800x500/0c0c1d/00ff9d?text=Achievement+Unlocked)
-
-#### Pattern Gallery
-![Patterns](https://via.placeholder.com/800x500/0c0c1d/00ff9d?text=Pattern+Gallery)
-
-</details>
+- **Real-time Grid Editor**: Click to paint, see changes instantly
+- **10 Achievement System**: Unlock rewards as you create
+- **Pattern Library**: Pre-built patterns to get you started
+- **Export to Image**: Download your creation with your username
+- **Persistent Storage**: Never lose your work
+- **Mobile Responsive**: Works on all devices
 
 ---
 
 ## 🚀 Installation
 
-### Option 1: Direct Download
+### Quick Start
 
-1. Download `contribution-game-enhanced.html`
-2. Open in any modern browser
-3. Start creating!
+1. **Download** the `contribution-game-enhanced.html` file
+2. **Open** in any modern browser
+3. **Enter** your GitHub username
+4. **Start creating!**
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/contribution-matrix-pro.git
+git clone https://github.com/Enyanwuma/contribution-matrix-pro.git
 
-# Navigate to the directory
+# Navigate to directory
 cd contribution-matrix-pro
 
 # Open in browser
 open contribution-game-enhanced.html
 ```
 
-### Option 2: GitHub Pages
+### Add to Your GitHub Profile
 
-1. Fork this repository
-2. Enable GitHub Pages in Settings
-3. Access at: `https://your-username.github.io/contribution-matrix-pro/`
+1. Create a pattern with your name
+2. Export as PNG
+3. Add to your profile README:
 
-### Option 3: Embed in Your Profile
-
-Add to your GitHub profile README:
-
-```html
-<div align="center">
-  <a href="https://your-username.github.io/contribution-matrix-pro/">
-    <img src="https://img.shields.io/badge/Play-Contribution_Game-00ff9d?style=for-the-badge" alt="Play Game"/>
-  </a>
-</div>
+```markdown
+![My Contribution Art](./your-username-contribution-matrix.png)
 ```
 
 ---
 
-## 📖 Usage Guide
+## 💡 How It Works
 
-### Getting Started
+### 1️⃣ Join the Community
 
-1. **Click Mode** (Default)
-   - Click any cell to cycle through intensity levels (0→1→2→3→4→0)
-   - Perfect for precise edits
+When you first open the game, you'll be prompted to enter your GitHub username. This creates your player profile and adds you to the global leaderboard.
 
-2. **Draw Mode**
-   - Press `D` or click "DRAW MODE" button
-   - Select intensity from the selector
-   - Click and drag to paint
-   - Press `D` again or "EXIT DRAW" to return to click mode
+### 2️⃣ Create Your Art
 
-3. **Using Patterns**
-   - Click any pattern button to apply instantly
-   - Combine patterns for unique designs
-   - Use undo if you don't like the result
+- **Write Your Name**: Use the text input to automatically draw your name on the grid
+- **Click Cells**: Toggle intensity levels (0-4) by clicking
+- **Use Patterns**: Try pre-built patterns for inspiration
+- **Get Creative**: Combine different techniques for unique designs
 
-4. **Saving Your Work**
-   - Press `S` or click "SAVE" button
-   - Your pattern is stored in browser localStorage
-   - Load anytime with `L` or "LOAD" button
+### 3️⃣ Unlock Achievements
 
-5. **Exporting**
-   - Click "EXPORT" button
-   - PNG image downloads automatically
-   - Share on social media or use in projects
+Earn achievements as you create:
+- ⭐ **First Steps**: Make your first contribution
+- 🔥 **Centurion**: Reach 100 contributions
+- 📅 **Full Week**: Fill an entire week
+- 🏆 **Perfectionist**: Fill all 364 squares
+- ⚡ **Streak Master**: Achieve a 50+ streak
+- 🎨 **Artist**: Write your name on the grid
+- 🦋 **Social Butterfly**: Join the leaderboard
+- 💾 **Curator**: Export your creation
+- ✨ **Creative Mind**: Use 5 different patterns
+- 🎯 **Persistent**: Come back 3 times
 
----
+### 4️⃣ Compete & Share
 
-## ⌨️ Keyboard Shortcuts
-
-| Key | Action |
-|-----|--------|
-| `C` | Clear all cells |
-| `R` | Randomize grid |
-| `F` | Fill all cells to max intensity |
-| `D` | Toggle draw mode |
-| `S` | Save current pattern |
-| `L` | Load saved pattern |
-| `Ctrl/Cmd + Z` | Undo last action |
-| `Ctrl/Cmd + Y` | Redo action |
+- Check the **Global Leaderboard** to see how you rank
+- Export your creation with your username
+- Share on social media with `#ContributionMatrixPro`
+- Add to your GitHub profile to showcase your creativity
 
 ---
 
-## 🎨 Themes
+## 🏆 Leaderboard
 
-### Van_Dragon (Default)
-- **Primary**: Dark space blue (#0c0c1d)
-- **Accent**: Neon green (#00ff9d)
-- **Vibe**: Cyberpunk, Matrix-inspired
+The leaderboard updates in real-time and tracks:
+- Total contributions per player
+- Current rankings (Top 10 displayed)
+- Your position highlighted
+- Total active players
 
-### Dragonfire
-- **Primary**: Deep purple (#1a0c1d)
-- **Accent**: Hot pink (#ff3366)
-- **Vibe**: Bold, energetic, passionate
-
-### Cybervoid
-- **Primary**: Deep ocean (#000814)
-- **Accent**: Cyan blue (#00b4d8)
-- **Vibe**: Cool, technical, professional
-
-Switch themes using the buttons at the top of the page!
+**Current Rankings**: Check the game to see live rankings!
 
 ---
 
-## 🏆 Achievements System
+## 🎨 Write Your Name Feature
 
-Track your progress and unlock achievements as you create:
+The name drawing feature uses a custom 5x7 pixel font to write your text on the grid:
 
-```javascript
-// Achievement Types
-{
-  milestone: "Reach contribution counts",
-  creative: "Use patterns and features",
-  persistence: "Total changes and undo usage",
-  mastery: "Complete specific challenges"
-}
-```
+1. Enter your name or message (max 20 characters)
+2. Click "DRAW TEXT"
+3. Your text appears on the grid in beautiful pixel art
+4. Export and share!
 
-### Achievement Tiers
+**Supported**: A-Z, 0-9, and spaces
 
-- 🥉 **Bronze**: 0-3 achievements (Beginner)
-- 🥈 **Silver**: 4-6 achievements (Intermediate)
-- 🥇 **Gold**: 7-9 achievements (Advanced)
-- 💎 **Diamond**: 10 achievements (Master)
+---
+
+## 📱 iPhone-Style Notifications
+
+Achievements and important events trigger beautiful iOS-style notifications:
+
+- **Slide-in animation** from the right
+- **Auto-dismiss** after 4 seconds
+- **Achievement icons** for unlocks
+- **Success/Info indicators** for actions
+
+---
+
+## 🎯 Best Practices
+
+### Creating Shareable Art
+
+1. **Start with your name**: Use the text feature for a personal touch
+2. **Add patterns**: Combine text with geometric patterns
+3. **Fill strategically**: Don't fill everything - negative space matters
+4. **Export often**: Save different versions as you experiment
+
+### Climbing the Leaderboard
+
+1. **Be consistent**: Regular contributions count
+2. **Go for streaks**: Long streaks boost your score
+3. **Complete weeks**: Full weeks give bonus points
+4. **Unlock achievements**: Each achievement adds to your ranking
 
 ---
 
 ## 🔧 Technical Details
 
-### Tech Stack
+### Storage System
 
-- **HTML5**: Semantic structure
-- **CSS3**: Custom properties, grid, flexbox, animations
-- **Vanilla JavaScript**: ES6+, no frameworks
-- **LocalStorage API**: Data persistence
-- **Canvas API**: Image export
+- **User Data**: Stored with username key
+- **Shared Storage**: Leaderboard accessible to all players
+- **Grid State**: Full 52x7 matrix saved
+- **Achievements**: Tracked per user
+- **Stats**: Real-time calculation
 
 ### Performance
 
-- ⚡ **Lightning Fast**: Renders 364 cells instantly
-- 💾 **Lightweight**: ~50KB total (uncompressed)
-- 🔋 **Efficient**: Minimal CPU/memory usage
-- 📱 **Responsive**: Adapts to any screen size
+- ⚡ **Lightning Fast**: Instant grid updates
+- 🌐 **Cloud Synced**: Changes saved globally
+- 📱 **Mobile Optimized**: Touch-friendly interface
+- 💾 **Persistent**: Data survives page reloads
 
-### Code Quality
+### Privacy
+
+- Only your **username** and **contribution data** are stored
+- No personal information collected
+- Data is shared for leaderboard functionality
+- You can clear your data anytime
+
+---
+
+## 🎮 Usage Guide
+
+### Getting Started
+
+```
+1. Enter your GitHub username → Join the community
+2. Type your name in the input field
+3. Click "DRAW TEXT" → Your name appears!
+4. Customize and add more designs
+5. Click "EXPORT" → Download your creation
+6. Share on your GitHub profile!
+```
+
+### Keyboard Shortcuts
+
+| Key | Action |
+|-----|--------|
+| `C` | Clear grid |
+| `R` | Randomize |
+| `Enter` | Submit username/text |
+
+---
+
+## 🌍 Community
+
+### Share Your Creations
+
+Use these hashtags when sharing:
+- `#ContributionMatrixPro`
+- `#GitHubArt`
+- `#PixelContributions`
+
+### GitHub Profile Integration
+
+Add your exported image to your README:
+
+```markdown
+## 🎨 My Contribution Art
+
+![Contribution Matrix](./my-contribution-art.png)
+
+*Created with [Contribution Matrix Pro](https://github.com/Enyanwuma/contribution-matrix-pro)*
+```
+
+---
+
+## 🛠️ For Developers
+
+### Adding New Features
+
+The game uses a modular class structure:
 
 ```javascript
-// Clean, modular architecture
 class ContributionGame {
-  // State management
-  // Event handling
-  // Pattern generation
-  // Achievement system
-  // Export functionality
+  // Username & Auth
+  async setUsername()
+  async checkUsername()
+  
+  // Grid Management
+  toggleCell(cell)
+  drawText()
+  
+  // Social Features
+  async saveUserData()
+  async updateLeaderboard()
+  
+  // Achievements
+  async checkAchievements()
+  async unlockAchievement(id)
+  
+  // Export
+  exportImage()
 }
 ```
 
-### File Structure
+### Storage API
 
+```javascript
+// Save user data
+await window.storage.set('user:username', data, true);
+
+// Get user data
+const result = await window.storage.get('user:username', true);
+
+// List all users
+const keys = await window.storage.list('user:', true);
 ```
-contribution-matrix-pro/
-│
-├── contribution-game-enhanced.html  # Main game file
-├── README.md                        # This file
-├── LICENSE                          # MIT License
-└── assets/                          # (Optional) Images, etc.
-```
-
----
-
-## 🌐 Browser Support
-
-| Browser | Version | Supported |
-|---------|---------|-----------|
-| Chrome | 90+ | ✅ |
-| Firefox | 88+ | ✅ |
-| Safari | 14+ | ✅ |
-| Edge | 90+ | ✅ |
-| Opera | 76+ | ✅ |
-
-**Note**: Requires a modern browser with ES6+ support.
-
----
-
-## 💡 Tips & Tricks
-
-### Creating Unique Patterns
-
-1. **Layer Patterns**: Apply multiple patterns sequentially
-2. **Partial Fills**: Use patterns then selectively clear areas
-3. **Gradient Effects**: Use the gradient pattern as a base
-4. **Symmetry**: Use border + cross for symmetric designs
-5. **Animation Study**: Watch the animate feature for inspiration
-
-### Best Practices
-
-- ✓ Save frequently (it's automatic, but manual save helps for backups)
-- ✓ Experiment with draw mode for organic shapes
-- ✓ Use undo liberally - you have 50 states!
-- ✓ Export before major changes for safety
-- ✓ Try all themes to see different color effects
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Here's how you can help:
+We welcome contributions! Here's how:
 
-### Ways to Contribute
+1. **Fork** the repository
+2. **Create** a feature branch
+3. **Add** your improvements
+4. **Test** thoroughly
+5. **Submit** a pull request
 
-1. **Report Bugs**: Open an issue with details
-2. **Suggest Features**: Share your ideas
-3. **Submit PRs**: Add new patterns, themes, or features
-4. **Improve Docs**: Help make this README better
-5. **Share**: Star the repo and spread the word!
+### Ideas for Contributions
 
-### Development Setup
-
-```bash
-# Fork and clone
-git clone https://github.com/your-username/contribution-matrix-pro.git
-
-# Create a branch
-git checkout -b feature/amazing-feature
-
-# Make changes and test
-
-# Commit
-git commit -m "Add amazing feature"
-
-# Push
-git push origin feature/amazing-feature
-
-# Open a Pull Request
-```
-
-### Adding New Patterns
-
-```javascript
-// In the ContributionGame class:
-createYourPattern() {
-    this.clear();
-    this.saveHistory();
-    
-    // Your pattern logic here
-    for (let week = 0; week < this.weeks; week++) {
-        for (let day = 0; day < this.daysPerWeek; day++) {
-            // Calculate level based on your algorithm
-            const level = /* your calculation */;
-            
-            this.grid[week][day].dataset.level = level;
-            this.grid[week][day].className = 'contribution-cell';
-            if (level > 0) {
-                this.grid[week][day].classList.add(`active-${level}`);
-            }
-        }
-    }
-    
-    this.updateStats();
-    this.saveToStorage();
-}
-```
-
----
-
-## 📜 License
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
-```
-MIT License
-
-Copyright (c) 2024 Van_Dragon Codex
-
-Permission is hereby granted, free of charge, to any person obtaining a copy...
-```
-
----
-
-## 🎖️ Credits
-
-### Created By
-
-**Van_Dragon Codex**  
-- GitHub: [@your-username](https://github.com/your-username)
-- Portfolio: [your-portfolio.com](https://your-portfolio.com)
-- Twitter: [@yourhandle](https://twitter.com/yourhandle)
-
-### Inspiration
-
-- GitHub's contribution graph design
-- Cyberpunk aesthetics
-- Creative coding community
-
-### Technologies
-
-- [Font Awesome](https://fontawesome.com/) - Icons
-- [Google Fonts](https://fonts.google.com/) - Orbitron & Share Tech Mono
-- Modern web standards (HTML5, CSS3, ES6+)
+- New pattern presets
+- Additional achievement types
+- Color themes
+- Font styles for text drawing
+- Social sharing features
+- Profile customization
 
 ---
 
 ## 📊 Stats
 
-![GitHub stars](https://img.shields.io/github/stars/your-username/contribution-matrix-pro?style=social)
-![GitHub forks](https://img.shields.io/github/forks/your-username/contribution-matrix-pro?style=social)
-![GitHub watchers](https://img.shields.io/github/watchers/your-username/contribution-matrix-pro?style=social)
+![GitHub stars](https://img.shields.io/github/stars/Enyanwuma/contribution-matrix-pro?style=social)
+![GitHub forks](https://img.shields.io/github/forks/Enyanwuma/contribution-matrix-pro?style=social)
 
-![GitHub issues](https://img.shields.io/github/issues/your-username/contribution-matrix-pro?style=flat-square)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/your-username/contribution-matrix-pro?style=flat-square)
-![GitHub last commit](https://img.shields.io/github/last-commit/your-username/contribution-matrix-pro?style=flat-square)
+**Active Players**: Check the game for live count!
 
 ---
 
-## 🚀 Roadmap
+## 🎓 Educational Use
 
-### Version 3.1 (Coming Soon)
-- [ ] More pattern presets (15+ total)
-- [ ] Custom color picker
-- [ ] Pattern sharing via URL
-- [ ] Mobile touch improvements
-- [ ] Daily challenges
-
-### Version 3.2 (Future)
-- [ ] Multiplayer collaborative mode
-- [ ] Pattern marketplace
-- [ ] Animation timeline editor
-- [ ] Sound effects
-- [ ] Dark/light mode toggle
-
-### Long Term
-- [ ] Integration with real GitHub contribution data
-- [ ] AI-powered pattern suggestions
-- [ ] Community gallery
-- [ ] Progressive Web App (PWA)
+This project is perfect for:
+- Learning JavaScript canvas manipulation
+- Understanding persistent storage APIs
+- Practicing UI/UX design
+- Building social features
+- Creating shareable web art
 
 ---
 
-## 💬 FAQ
+## 📜 License
 
-<details>
-<summary><b>Q: Does this connect to my real GitHub account?</b></summary>
+MIT License - feel free to use, modify, and share!
 
-A: No, this is a standalone creative tool. It mimics the GitHub contribution graph visually but doesn't connect to or modify your actual GitHub data.
-</details>
+```
+Copyright (c) 2024 Van_Dragon Codex & Enyanwuma
 
-<details>
-<summary><b>Q: Where is my data stored?</b></summary>
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software...
+```
 
-A: All data is stored locally in your browser's localStorage. Nothing is sent to any server. Your patterns are private and stay on your device.
-</details>
+---
 
-<details>
-<summary><b>Q: Can I use this commercially?</b></summary>
+## 🙏 Credits
 
-A: Yes! This project is MIT licensed. You're free to use, modify, and distribute it, even commercially.
-</details>
+**Created by**: [Enyanwuma](https://github.com/Enyanwuma)
+**Original Concept**: Van_Dragon Codex  
+**Inspiration**: GitHub's contribution graph
 
-<details>
-<summary><b>Q: Why aren't my achievements saving?</b></summary>
+### Technologies
 
-A: Make sure your browser allows localStorage. Some privacy modes or extensions might block it. Try a different browser or check your settings.
-</details>
-
-<details>
-<summary><b>Q: How do I add custom patterns?</b></summary>
-
-A: You can edit the JavaScript code and add new pattern methods. See the [Contributing](#-contributing) section for details.
-</details>
-
-<details>
-<summary><b>Q: Can I change the grid size?</b></summary>
-
-A: Currently the grid is fixed at 52 weeks × 7 days (364 cells) to match GitHub's layout. Custom grid sizes may come in a future update.
-</details>
+- Vanilla JavaScript (ES6+)
+- HTML5 Canvas API
+- CSS3 Animations
+- Font Awesome Icons
+- Google Fonts (Orbitron, Share Tech Mono)
 
 ---
 
 ## 🌟 Showcase
 
-**Made something awesome?** Share it!
+**Top Creators**:
+- Check the leaderboard in-game for current top players!
 
-Tag your creations with `#ContributionMatrixPro` on social media!
+**Featured Creations**:
+- Share yours by tagging `#ContributionMatrixPro`
 
 ---
 
-## 📞 Support
+## 💬 Support
 
-Need help or have questions?
+- 🐛 **Issues**: [GitHub Issues](https://github.com/Enyanwuma/contribution-matrix-pro/issues)
+- 💡 **Discussions**: [GitHub Discussions](https://github.com/Enyanwuma/contribution-matrix-pro/discussions)
+- 📧 **Contact**: Open an issue for questions
 
-- 📧 **Email**: your.email@example.com
-- 💬 **Discord**: [Join our community](#)
-- 🐛 **Issues**: [GitHub Issues](https://github.com/your-username/contribution-matrix-pro/issues)
-- 💡 **Discussions**: [GitHub Discussions](https://github.com/your-username/contribution-matrix-pro/discussions)
+---
+
+## 🔮 Roadmap
+
+### v4.1 (Coming Soon)
+- [ ] Private messaging between players
+- [ ] Pattern sharing marketplace
+- [ ] Custom color themes
+- [ ] Animation timeline
+- [ ] Team challenges
+
+### v5.0 (Future)
+- [ ] Real GitHub API integration
+- [ ] Daily challenges
+- [ ] Player profiles
+- [ ] Achievement badges
+- [ ] Mobile app
 
 ---
 
@@ -525,14 +413,57 @@ Need help or have questions?
 
 ## ⭐ Star This Repo!
 
-If you found this project useful, please consider giving it a star. It helps others discover it too!
-
-[![Star History Chart](https://api.star-history.com/svg?repos=your-username/contribution-matrix-pro&type=Date)](https://star-history.com/#your-username/contribution-matrix-pro&Date)
+If you enjoyed creating with Contribution Matrix Pro, give us a star!  
+It helps others discover this project.
 
 ---
 
 **Made with 💚 by the Van_Dragon Codex community**
 
-[⬆ Back to Top](#-contribution-matrix-pro)
+**Updated by**: [Enyanwuma](https://github.com/Enyanwuma)
+
+---
+
+```
+   ╔═══════════════════════════════════════════════════════════╗
+   ║                                                           ║
+   ║   ▓▓▓    ▓▓▓   ▓▓▓▓▓   ▓▓▓    ▓▓▓                       ║
+   ║    ▓      ▓    ▓   ▓    ▓▓     ▓▓                        ║
+   ║    ▓      ▓    ▓▓▓▓▓    ▓▓▓   ▓▓▓                        ║
+   ║    ▓      ▓    ▓   ▓    ▓▓     ▓▓                        ║
+   ║    ▓      ▓    ▓   ▓    ▓▓     ▓▓                        ║
+   ║                                                           ║
+   ║          THANK YOU FOR PLAYING!                          ║
+   ║                                                           ║
+   ║     Your creativity connects us all  🌍                  ║
+   ║                                                           ║
+   ║  [====================================]                   ║
+   ║  [     ACHIEVEMENT UNLOCKED! ðŸ†      ]                   ║
+   ║  [        Community Builder           ]                   ║
+   ║  [====================================]                   ║
+   ║                                                           ║
+   ╚═══════════════════════════════════════════════════════════╝
+
+                  â–'â–'â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–'â–'
+                â–'â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–'
+              â–'â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–'
+              â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ
+              â–ˆâ–ˆ â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ â–ˆâ–ˆ
+              â–ˆâ–ˆ â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ â–ˆâ–ˆ
+              â–ˆâ–ˆ â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ â–ˆâ–ˆ
+                â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ
+                  â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ
+                    â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ
+                      â–ˆâ–ˆâ–ˆâ–ˆâ–ˆ
+                        â–ˆâ–ˆâ–ˆ
+                         â–ˆ
+
+      ╔══════════════════════════════════════╗
+      ║  DIGITAL CONNECTIONS → PHYSICAL ART  ║
+      ║         Your Grid, Your Story        ║
+      ╚══════════════════════════════════════╝
+```
+
+[⬆ Back to Top](#-contribution-matrix-pro---social-edition)
 
 </div>
