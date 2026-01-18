@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Van_Dragon Contribution Tracker</title>
+    <title>Van_Dragon Contribution Tracker Pro - Social Edition</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -17,8 +17,6 @@
             --text-secondary: #a0a0c0;
             --card-bg: rgba(10, 10, 25, 0.7);
             --border-color: rgba(0, 255, 157, 0.2);
-            --dragonfire: #ff3366;
-            --cybervoid: #00b4d8;
         }
         
         * {
@@ -43,27 +41,187 @@
                 linear-gradient(to bottom, var(--primary), #000);
         }
 
-        .dragon-seed {
+        /* Username Modal */
+        .username-modal {
             position: fixed;
-            width: 2px;
-            height: 2px;
-            background: var(--accent);
-            border-radius: 50%;
-            opacity: 0;
-            animation: float 5s infinite ease-in-out;
-            pointer-events: none;
-            box-shadow: 0 0 10px var(--accent);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            backdrop-filter: blur(10px);
         }
 
-        @keyframes float {
-            0%, 100% { 
-                opacity: 0; 
-                transform: translateY(0) scale(1);
+        .username-modal.hidden {
+            display: none;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            border: 2px solid var(--accent);
+            border-radius: 16px;
+            padding: 3rem;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 0 50px rgba(0, 255, 157, 0.4);
+            animation: modalSlide 0.4s ease;
+        }
+
+        @keyframes modalSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
             }
-            50% { 
-                opacity: 0.6; 
-                transform: translateY(-20px) scale(1.5);
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
+        }
+
+        .modal-content h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-content p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .modal-input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .modal-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
+        }
+
+        .modal-btn {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            color: var(--primary);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-family: 'Share Tech Mono', monospace;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 255, 157, 0.4);
+        }
+
+        /* iPhone-style Notifications */
+        .notification-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            width: 360px;
+            max-width: calc(100vw - 40px);
+        }
+
+        .notification {
+            background: rgba(30, 30, 50, 0.98);
+            border-radius: 16px;
+            padding: 1.2rem;
+            margin-bottom: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: notificationSlide 0.4s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        @keyframes notificationSlide {
+            from {
+                opacity: 0;
+                transform: translateX(400px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .notification.removing {
+            animation: notificationSlideOut 0.3s ease forwards;
+        }
+
+        @keyframes notificationSlideOut {
+            to {
+                opacity: 0;
+                transform: translateX(400px);
+            }
+        }
+
+        .notification-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .notification-icon.achievement {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+        }
+
+        .notification-icon.success {
+            background: linear-gradient(135deg, #00ff9d, #00cc7a);
+        }
+
+        .notification-icon.info {
+            background: linear-gradient(135deg, #00b4d8, #0077b6);
+        }
+
+        .notification-content {
+            flex: 1;
+        }
+
+        .notification-title {
+            font-weight: 700;
+            color: white;
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+
+        .notification-message {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .notification-time {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.75rem;
+            margin-top: 4px;
         }
 
         .container {
@@ -73,20 +231,27 @@
 
         header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             animation: fadeInDown 0.8s ease;
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 2rem;
         }
 
-        .title-ascii {
-            font-family: 'Courier New', monospace;
-            font-size: 0.5rem;
+        .welcome-banner {
+            background: rgba(0, 255, 157, 0.1);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .welcome-banner span {
             color: var(--accent);
-            text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
-            line-height: 0.6rem;
-            margin-bottom: 1rem;
-            white-space: pre;
+            font-weight: 700;
         }
 
         h1 {
@@ -103,43 +268,11 @@
             color: var(--text-secondary);
             font-size: 1.1rem;
             margin-bottom: 1.5rem;
-            font-family: 'Share Tech Mono', monospace;
-        }
-
-        .theme-switch {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin-top: 1rem;
-        }
-
-        .theme-btn {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            color: var(--text);
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-family: 'Share Tech Mono', monospace;
-            transition: all 0.3s;
-            font-size: 0.85rem;
-        }
-
-        .theme-btn:hover {
-            background: rgba(0, 255, 157, 0.1);
-            transform: translateY(-2px);
-            border-color: var(--accent);
-        }
-
-        .theme-btn.active {
-            background: rgba(0, 255, 157, 0.2);
-            border-color: var(--accent);
-            box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
         }
 
         .stats-bar {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 1.5rem;
             margin-bottom: 2rem;
         }
@@ -152,24 +285,6 @@
             text-align: center;
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-            animation: scan 3s infinite;
-        }
-
-        @keyframes scan {
-            0%, 100% { left: -100%; }
-            50% { left: 100%; }
         }
 
         .stat:hover {
@@ -179,7 +294,7 @@
         }
 
         .stat-value {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: var(--accent);
             font-weight: 700;
             font-family: 'Orbitron', sans-serif;
@@ -187,7 +302,7 @@
         }
 
         .stat-label {
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             color: var(--text-secondary);
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -201,8 +316,6 @@
             padding: 2rem;
             margin-bottom: 2rem;
             backdrop-filter: blur(10px);
-            animation: fadeIn 0.8s ease 0.2s backwards;
-            box-shadow: 0 4px 20px rgba(0, 255, 157, 0.1);
         }
 
         .section-header {
@@ -215,13 +328,48 @@
             gap: 10px;
         }
 
-        .section-header i {
+        .text-input-section {
+            background: rgba(0, 255, 157, 0.05);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .text-input-section h3 {
             color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .text-input-wrapper {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .text-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 0.8rem;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        .text-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
         }
 
         .controls {
             display: flex;
-            gap: 1rem;
+            gap: 0.8rem;
             margin-bottom: 2rem;
             flex-wrap: wrap;
             justify-content: center;
@@ -231,35 +379,18 @@
             background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
             color: var(--primary);
             border: none;
-            padding: 0.8rem 1.5rem;
+            padding: 0.7rem 1.2rem;
             border-radius: 6px;
             font-family: 'Share Tech Mono', monospace;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .btn:hover::before {
-            width: 300px;
-            height: 300px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .btn:hover {
@@ -267,19 +398,10 @@
             box-shadow: 0 8px 25px rgba(0, 255, 157, 0.4);
         }
 
-        .btn:active {
-            transform: translateY(0);
-        }
-
         .btn-secondary {
             background: rgba(0, 255, 157, 0.1);
             color: var(--accent);
             border: 1px solid var(--accent);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(0, 255, 157, 0.2);
-            box-shadow: 0 4px 20px rgba(0, 255, 157, 0.2);
         }
 
         .grid-container {
@@ -307,7 +429,6 @@
             border-radius: 2px;
             cursor: pointer;
             transition: all 0.2s ease;
-            position: relative;
         }
 
         .contribution-cell:hover {
@@ -340,108 +461,45 @@
             box-shadow: 0 0 15px rgba(0, 255, 157, 0.7);
         }
 
-        .legend {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            margin-top: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            padding: 1rem;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 6px;
-        }
-
-        .legend-text {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            margin-right: 0.5rem;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-
-        .legend-square {
-            width: 14px;
-            height: 14px;
-            border-radius: 2px;
-            border: 1px solid var(--border-color);
-        }
-
-        .patterns-section {
-            margin-top: 2rem;
-            text-align: center;
-        }
-
-        .patterns-section h3 {
-            color: var(--accent);
-            margin-bottom: 1rem;
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        .pattern-btn {
-            background: rgba(0, 255, 157, 0.1);
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            margin: 0.25rem;
-        }
-
-        .pattern-btn:hover {
-            background: rgba(0, 255, 157, 0.2);
-            border-color: var(--accent-light);
-        }
-
-        .tips {
+        .leaderboard {
             background: rgba(0, 255, 157, 0.05);
-            border-left: 4px solid var(--accent);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
             padding: 1.5rem;
             margin-top: 2rem;
-            border-radius: 6px;
         }
 
-        .tips h3 {
+        .leaderboard h3 {
             color: var(--accent);
             margin-bottom: 1rem;
-            font-size: 1.2rem;
             font-family: 'Orbitron', sans-serif;
+        }
+
+        .leaderboard-list {
             display: flex;
-            align-items: center;
-            gap: 10px;
+            flex-direction: column;
+            gap: 0.8rem;
         }
 
-        .tips ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .tips li {
-            padding: 0.5rem 0;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
+        .leaderboard-item {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+            border-radius: 6px;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 10px;
+            transition: all 0.3s;
         }
 
-        .tips li::before {
-            content: "▹";
-            color: var(--accent);
-            font-weight: 700;
-            font-size: 1.2rem;
+        .leaderboard-item:hover {
+            border-color: var(--accent);
+            transform: translateX(5px);
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .leaderboard-item.current-user {
+            border-color: var(--accent);
+            background: rgba(0, 255, 157, 0.1);
         }
 
         @keyframes fadeInDown {
@@ -464,259 +522,149 @@
                 width: 10px;
                 height: 10px;
             }
-            
-            .stat {
-                padding: 1rem;
-            }
-            
-            .stat-value {
-                font-size: 2rem;
-            }
-        }
-
-        .tooltip {
-            position: fixed;
-            background: rgba(0, 0, 0, 0.95);
-            border: 1px solid var(--accent);
-            padding: 0.6rem 1rem;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            pointer-events: none;
-            z-index: 1000;
-            display: none;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
-        }
-
-        footer {
-            margin-top: 3rem;
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            padding: 2rem 0;
-            border-top: 1px solid var(--border-color);
-        }
-
-        footer a {
-            color: var(--accent);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        footer a:hover {
-            color: var(--accent-light);
-            text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
-        }
-
-        /* Dragonfire Theme */
-        body.theme-dragonfire {
-            --primary: #1a0c1d;
-            --secondary: #3a1a2e;
-            --accent: #ff3366;
-            --accent-dark: #cc0044;
-            --accent-light: #ff6699;
-            --text: #ffe0ff;
-            --text-secondary: #c0a0b0;
-            --border-color: rgba(255, 51, 102, 0.3);
-            --card-bg: rgba(25, 10, 20, 0.8);
-        }
-
-        /* Cybervoid Theme */
-        body.theme-cybervoid {
-            --primary: #000814;
-            --secondary: #0d1b2a;
-            --accent: #00b4d8;
-            --accent-dark: #0077b6;
-            --accent-light: #90e0ef;
-            --text: #e2eafc;
-            --text-secondary: #a0b0d0;
-            --border-color: rgba(0, 180, 216, 0.3);
-            --card-bg: rgba(13, 27, 42, 0.8);
         }
     </style>
 </head>
 <body>
+    <!-- Username Modal -->
+    <div class="username-modal" id="usernameModal">
+        <div class="modal-content">
+            <h2>🎮 Welcome, Player!</h2>
+            <p>Enter your GitHub username to start tracking your contributions and competing with others</p>
+            <input type="text" id="usernameInput" class="modal-input" placeholder="Enter your username..." maxlength="39">
+            <button class="modal-btn" onclick="game.setUsername()">START GAME</button>
+        </div>
+    </div>
+
+    <!-- iPhone-style Notifications -->
+    <div class="notification-container" id="notificationContainer"></div>
+
     <div class="container">
         <header>
-            <div class="title-ascii">
-╔═══════════════════════════════════════════════════════════╗
-║   VAN_DRAGON CODEX :: CONTRIBUTION TRACKER v2.0          ║
-╚═══════════════════════════════════════════════════════════╝
+            <div class="welcome-banner" id="welcomeBanner" style="display: none;">
+                <i class="fas fa-user-circle"></i>
+                <span id="currentUsername"></span>
             </div>
-            <h1>🐉 CONTRIBUTION MATRIX</h1>
-            <p class="subtitle">&gt;&gt; Interactive GitHub-Style Grid System :: Click to Toggle Intensity</p>
-            
-            <div class="theme-switch">
-                <button class="theme-btn active" id="default-theme">
-                    <i class="fas fa-circle" style="color: #00ff9d;"></i> Van_Dragon
-                </button>
-                <button class="theme-btn" id="dragonfire-theme">
-                    <i class="fas fa-fire" style="color: #ff3366;"></i> Dragonfire
-                </button>
-                <button class="theme-btn" id="cybervoid-theme">
-                    <i class="fas fa-water" style="color: #00b4d8;"></i> Cybervoid
-                </button>
-            </div>
+            <h1>🐉 CONTRIBUTION MATRIX PRO</h1>
+            <p class="subtitle">&gt;&gt; Social Edition :: Real-Time Player Tracking</p>
         </header>
 
         <div class="stats-bar">
             <div class="stat">
                 <div class="stat-value" id="totalContributions">0</div>
-                <div class="stat-label"><i class="fas fa-code-branch"></i> Total Contributions</div>
+                <div class="stat-label"><i class="fas fa-code-branch"></i> Contributions</div>
             </div>
             <div class="stat">
                 <div class="stat-value" id="currentStreak">0</div>
-                <div class="stat-label"><i class="fas fa-fire"></i> Current Streak</div>
+                <div class="stat-label"><i class="fas fa-fire"></i> Streak</div>
             </div>
             <div class="stat">
-                <div class="stat-value" id="longestStreak">0</div>
-                <div class="stat-label"><i class="fas fa-trophy"></i> Longest Streak</div>
+                <div class="stat-value" id="achievementCount">0<span style="font-size: 1.2rem;">/10</span></div>
+                <div class="stat-label"><i class="fas fa-medal"></i> Achievements</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="totalPlayers">0</div>
+                <div class="stat-label"><i class="fas fa-users"></i> Players</div>
             </div>
         </div>
 
         <div class="game-section">
             <h2 class="section-header">
-                <i class="fas fa-gamepad"></i>
-                CONTROLS
+                <i class="fas fa-pencil-alt"></i>
+                WRITE YOUR NAME
             </h2>
             
+            <div class="text-input-section">
+                <h3><i class="fas fa-signature"></i> Custom Text on Grid</h3>
+                <div class="text-input-wrapper">
+                    <input type="text" id="nameInput" class="text-input" placeholder="Type your name or message..." maxlength="20">
+                    <button class="btn" onclick="game.drawText()">
+                        <i class="fas fa-pen"></i> DRAW TEXT
+                    </button>
+                </div>
+            </div>
+            
             <div class="controls">
+                <button class="btn btn-secondary" onclick="game.exportImage()">
+                    <i class="fas fa-download"></i> EXPORT
+                </button>
                 <button class="btn" onclick="game.clear()">
-                    <i class="fas fa-redo"></i> CLEAR ALL
+                    <i class="fas fa-trash"></i> CLEAR
                 </button>
                 <button class="btn btn-secondary" onclick="game.randomize()">
-                    <i class="fas fa-random"></i> RANDOMIZE
-                </button>
-                <button class="btn btn-secondary" onclick="game.fillAll()">
-                    <i class="fas fa-fill"></i> FILL ALL
-                </button>
-                <button class="btn btn-secondary" onclick="game.savePattern()">
-                    <i class="fas fa-save"></i> SAVE
-                </button>
-                <button class="btn btn-secondary" onclick="game.loadPattern()">
-                    <i class="fas fa-folder-open"></i> LOAD
+                    <i class="fas fa-random"></i> RANDOM
                 </button>
             </div>
 
             <div class="grid-container">
                 <div class="contribution-grid" id="contributionGrid"></div>
             </div>
-
-            <div class="legend">
-                <span class="legend-text">INTENSITY:</span>
-                <div class="legend-item">
-                    <div class="legend-square" style="background: rgba(255, 255, 255, 0.03);"></div>
-                    <span style="color: var(--text-secondary); font-size: 0.8rem;">0</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-square active-1"></div>
-                    <span style="color: var(--text-secondary); font-size: 0.8rem;">1</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-square active-2"></div>
-                    <span style="color: var(--text-secondary); font-size: 0.8rem;">2</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-square active-3"></div>
-                    <span style="color: var(--text-secondary); font-size: 0.8rem;">3</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-square active-4"></div>
-                    <span style="color: var(--text-secondary); font-size: 0.8rem;">4</span>
-                </div>
-            </div>
-
-            <div class="patterns-section">
-                <h3><i class="fas fa-shapes"></i> QUICK PATTERNS</h3>
-                <button class="btn pattern-btn" onclick="game.createCheckerboard()">
-                    <i class="fas fa-th"></i> Checkerboard
-                </button>
-                <button class="btn pattern-btn" onclick="game.createWave()">
-                    <i class="fas fa-wave-square"></i> Wave
-                </button>
-                <button class="btn pattern-btn" onclick="game.createDiagonal()">
-                    <i class="fas fa-slash"></i> Diagonal
-                </button>
-                <button class="btn pattern-btn" onclick="game.createHeart()">
-                    <i class="fas fa-heart"></i> Heart
-                </button>
-                <button class="btn pattern-btn" onclick="game.createSmile()">
-                    <i class="fas fa-smile"></i> Smile
-                </button>
-            </div>
-
-            <div class="tips">
-                <h3><i class="fas fa-lightbulb"></i> SYSTEM INFO</h3>
-                <ul>
-                    <li>Click any square to cycle through 5 intensity levels (0→1→2→3→4→0)</li>
-                    <li>Hover over squares to see coordinates and current level</li>
-                    <li>Use preset patterns for instant cool designs</li>
-                    <li>Keyboard shortcuts: C (clear), R (randomize), F (fill all)</li>
-                    <li>Your patterns auto-save in browser storage</li>
-                    <li>Switch themes using the buttons above</li>
-                </ul>
-            </div>
         </div>
 
-        <footer>
-            <p>© 2024 Van_Dragon Codex • Built with 💚 and ⚡</p>
-            <p style="margin-top: 0.5rem;">
-                <a href="https://github.com/Enyanwuma/Enyanwuma" target="_blank">
-                    <i class="fas fa-arrow-left"></i> Back to GitHub Profile
-                </a>
-            </p>
-        </footer>
+        <div class="leaderboard">
+            <h3><i class="fas fa-trophy"></i> GLOBAL LEADERBOARD</h3>
+            <div class="leaderboard-list" id="leaderboardList">
+                <div style="text-align: center; color: var(--text-secondary); padding: 2rem;">
+                    Loading players...
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="tooltip" id="tooltip"></div>
-
     <script>
-        // Dragon Seeds Animation
-        function createDragonSeeds() {
-            for (let i = 0; i < 15; i++) {
-                const seed = document.createElement('div');
-                seed.className = 'dragon-seed';
-                seed.style.left = `${Math.random() * 100}%`;
-                seed.style.top = `${Math.random() * 100}%`;
-                seed.style.animationDelay = `${Math.random() * 3}s`;
-                seed.style.animationDuration = `${3 + Math.random() * 2}s`;
-                document.body.appendChild(seed);
-            }
-        }
-
-        // Theme Switching
-        document.querySelectorAll('.theme-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-                
-                document.body.classList.remove('theme-dragonfire', 'theme-cybervoid');
-                
-                if (this.id === 'dragonfire-theme') {
-                    document.body.classList.add('theme-dragonfire');
-                } else if (this.id === 'cybervoid-theme') {
-                    document.body.classList.add('theme-cybervoid');
-                }
-            });
-        });
-
         class ContributionGame {
             constructor() {
                 this.weeks = 52;
                 this.daysPerWeek = 7;
                 this.grid = [];
+                this.username = null;
+                this.achievements = this.initAchievements();
                 this.stats = {
                     total: 0,
                     currentStreak: 0,
                     longestStreak: 0
                 };
                 
-                this.init();
-                this.loadFromStorage();
-                this.setupKeyboardControls();
+                this.checkUsername();
             }
 
-            init() {
+            async checkUsername() {
+                try {
+                    const stored = await window.storage.get('current_username');
+                    if (stored && stored.value) {
+                        this.username = stored.value;
+                        document.getElementById('usernameModal').classList.add('hidden');
+                        await this.init();
+                    } else {
+                        document.getElementById('usernameInput').focus();
+                    }
+                } catch (e) {
+                    document.getElementById('usernameInput').focus();
+                }
+            }
+
+            async setUsername() {
+                const input = document.getElementById('usernameInput').value.trim();
+                if (!input) {
+                    this.showNotification('Error', 'Please enter a username', 'info');
+                    return;
+                }
+                
+                this.username = input;
+                try {
+                    await window.storage.set('current_username', input);
+                    document.getElementById('usernameModal').classList.add('hidden');
+                    await this.init();
+                    this.showNotification('Welcome!', `Hey ${input}! Ready to create awesome patterns?`, 'success');
+                } catch (e) {
+                    console.error('Error saving username:', e);
+                }
+            }
+
+            async init() {
+                document.getElementById('welcomeBanner').style.display = 'flex';
+                document.getElementById('currentUsername').textContent = `@${this.username}`;
+                
                 const gridElement = document.getElementById('contributionGrid');
                 gridElement.innerHTML = '';
 
@@ -730,16 +678,33 @@
                         cell.dataset.level = 0;
                         
                         cell.addEventListener('click', (e) => this.toggleCell(e.target));
-                        cell.addEventListener('mouseenter', (e) => this.showTooltip(e));
-                        cell.addEventListener('mouseleave', () => this.hideTooltip());
                         
                         gridElement.appendChild(cell);
                         this.grid[week][day] = cell;
                     }
                 }
+
+                await this.loadUserData();
+                await this.updateLeaderboard();
+                this.updateStats();
             }
 
-            toggleCell(cell) {
+            initAchievements() {
+                return [
+                    { id: 'first_click', name: 'First Steps', desc: 'Make your first contribution', icon: '⭐' },
+                    { id: 'century', name: 'Centurion', desc: 'Reach 100 contributions', icon: '🔥' },
+                    { id: 'full_week', name: 'Full Week', desc: 'Fill an entire week', icon: '📅' },
+                    { id: 'perfectionist', name: 'Perfectionist', desc: 'Fill all 364 squares', icon: '🏆' },
+                    { id: 'streak_master', name: 'Streak Master', desc: 'Achieve a 50+ streak', icon: '⚡' },
+                    { id: 'artist', name: 'Artist', desc: 'Write your name on the grid', icon: '🎨' },
+                    { id: 'social', name: 'Social Butterfly', desc: 'Join the leaderboard', icon: '🦋' },
+                    { id: 'exporter', name: 'Curator', desc: 'Export your creation', icon: '💾' },
+                    { id: 'creative', name: 'Creative Mind', desc: 'Use 5 different patterns', icon: '✨' },
+                    { id: 'persistent', name: 'Persistent', desc: 'Come back 3 times', icon: '🎯' }
+                ];
+            }
+
+            async toggleCell(cell) {
                 const currentLevel = parseInt(cell.dataset.level);
                 const newLevel = (currentLevel + 1) % 5;
                 
@@ -751,7 +716,70 @@
                 }
                 
                 this.updateStats();
-                this.saveToStorage();
+                await this.saveUserData();
+                await this.checkAchievements();
+            }
+
+            drawText() {
+                const text = document.getElementById('nameInput').value.toUpperCase();
+                if (!text) return;
+                
+                this.clear();
+                
+                // Simple 5x7 font mapping for capital letters
+                const font = {
+                    'A': [[0,1,1,1,0],[1,0,0,0,1],[1,1,1,1,1],[1,0,0,0,1],[1,0,0,0,1]],
+                    'B': [[1,1,1,1,0],[1,0,0,0,1],[1,1,1,1,0],[1,0,0,0,1],[1,1,1,1,0]],
+                    'C': [[0,1,1,1,0],[1,0,0,0,1],[1,0,0,0,0],[1,0,0,0,1],[0,1,1,1,0]],
+                    'D': [[1,1,1,1,0],[1,0,0,0,1],[1,0,0,0,1],[1,0,0,0,1],[1,1,1,1,0]],
+                    'E': [[1,1,1,1,1],[1,0,0,0,0],[1,1,1,1,0],[1,0,0,0,0],[1,1,1,1,1]],
+                    'F': [[1,1,1,1,1],[1,0,0,0,0],[1,1,1,1,0],[1,0,0,0,0],[1,0,0,0,0]],
+                    'G': [[0,1,1,1,0],[1,0,0,0,0],[1,0,1,1,1],[1,0,0,0,1],[0,1,1,1,0]],
+                    'H': [[1,0,0,0,1],[1,0,0,0,1],[1,1,1,1,1],[1,0,0,0,1],[1,0,0,0,1]],
+                    'I': [[1,1,1,1,1],[0,0,1,0,0],[0,0,1,0,0],[0,0,1,0,0],[1,1,1,1,1]],
+                    'J': [[1,1,1,1,1],[0,0,0,1,0],[0,0,0,1,0],[1,0,0,1,0],[0,1,1,0,0]],
+                    'K': [[1,0,0,0,1],[1,0,0,1,0],[1,1,1,0,0],[1,0,0,1,0],[1,0,0,0,1]],
+                    'L': [[1,0,0,0,0],[1,0,0,0,0],[1,0,0,0,0],[1,0,0,0,0],[1,1,1,1,1]],
+                    'M': [[1,0,0,0,1],[1,1,0,1,1],[1,0,1,0,1],[1,0,0,0,1],[1,0,0,0,1]],
+                    'N': [[1,0,0,0,1],[1,1,0,0,1],[1,0,1,0,1],[1,0,0,1,1],[1,0,0,0,1]],
+                    'O': [[0,1,1,1,0],[1,0,0,0,1],[1,0,0,0,1],[1,0,0,0,1],[0,1,1,1,0]],
+                    'P': [[1,1,1,1,0],[1,0,0,0,1],[1,1,1,1,0],[1,0,0,0,0],[1,0,0,0,0]],
+                    'Q': [[0,1,1,1,0],[1,0,0,0,1],[1,0,0,0,1],[1,0,0,1,0],[0,1,1,0,1]],
+                    'R': [[1,1,1,1,0],[1,0,0,0,1],[1,1,1,1,0],[1,0,0,1,0],[1,0,0,0,1]],
+                    'S': [[0,1,1,1,1],[1,0,0,0,0],[0,1,1,1,0],[0,0,0,0,1],[1,1,1,1,0]],
+                    'T': [[1,1,1,1,1],[0,0,1,0,0],[0,0,1,0,0],[0,0,1,0,0],[0,0,1,0,0]],
+                    'U': [[1,0,0,0,1],[1,0,0,0,1],[1,0,0,0,1],[1,0,0,0,1],[0,1,1,1,0]],
+                    'V': [[1,0,0,0,1],[1,0,0,0,1],[1,0,0,0,1],[0,1,0,1,0],[0,0,1,0,0]],
+                    'W': [[1,0,0,0,1],[1,0,0,0,1],[1,0,1,0,1],[1,1,0,1,1],[1,0,0,0,1]],
+                    'X': [[1,0,0,0,1],[0,1,0,1,0],[0,0,1,0,0],[0,1,0,1,0],[1,0,0,0,1]],
+                    'Y': [[1,0,0,0,1],[0,1,0,1,0],[0,0,1,0,0],[0,0,1,0,0],[0,0,1,0,0]],
+                    'Z': [[1,1,1,1,1],[0,0,0,1,0],[0,0,1,0,0],[0,1,0,0,0],[1,1,1,1,1]],
+                    ' ': [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]
+                };
+                
+                let startWeek = 2;
+                for (let char of text) {
+                    if (!font[char]) continue;
+                    const letterPattern = font[char];
+                    
+                    for (let col = 0; col < letterPattern.length; col++) {
+                        if (startWeek + col >= this.weeks) break;
+                        for (let row = 0; row < letterPattern[col].length; row++) {
+                            if (letterPattern[col][row] === 1) {
+                                if (row < this.daysPerWeek) {
+                                    this.grid[startWeek + col][row + 1].dataset.level = 4;
+                                    this.grid[startWeek + col][row + 1].className = 'contribution-cell active-4';
+                                }
+                            }
+                        }
+                    }
+                    startWeek += 6;
+                }
+                
+                this.updateStats();
+                this.saveUserData();
+                this.unlockAchievement('artist');
+                this.showNotification('Text Created!', `"${text}" added to your grid`, 'success');
             }
 
             updateStats() {
@@ -779,7 +807,177 @@
 
                 document.getElementById('totalContributions').textContent = total;
                 document.getElementById('currentStreak').textContent = currentStreak;
-                document.getElementById('longestStreak').textContent = longestStreak;
+
+                this.stats = { total, currentStreak, longestStreak };
+            }
+
+            async saveUserData() {
+                if (!this.username) return;
+                
+                const gridState = [];
+                for (let week = 0; week < this.weeks; week++) {
+                    gridState[week] = [];
+                    for (let day = 0; day < this.daysPerWeek; day++) {
+                        gridState[week][day] = parseInt(this.grid[week][day].dataset.level);
+                    }
+                }
+
+                const userData = {
+                    username: this.username,
+                    gridState: gridState,
+                    stats: this.stats,
+                    achievements: this.achievements,
+                    lastUpdated: Date.now()
+                };
+
+                try {
+                    await window.storage.set(`user:${this.username}`, JSON.stringify(userData), true);
+                    await this.updateLeaderboard();
+                } catch (e) {
+                    console.error('Error saving user data:', e);
+                }
+            }
+
+            async loadUserData() {
+                if (!this.username) return;
+                
+                try {
+                    const result = await window.storage.get(`user:${this.username}`, true);
+                    if (result && result.value) {
+                        const userData = JSON.parse(result.value);
+                        
+                        for (let week = 0; week < this.weeks; week++) {
+                            for (let day = 0; day < this.daysPerWeek; day++) {
+                                const level = userData.gridState[week][day];
+                                this.grid[week][day].dataset.level = level;
+                                this.grid[week][day].className = 'contribution-cell';
+                                if (level > 0) {
+                                    this.grid[week][day].classList.add(`active-${level}`);
+                                }
+                            }
+                        }
+                        
+                        this.achievements = userData.achievements || this.achievements;
+                        this.updateStats();
+                    }
+                } catch (e) {
+                    console.log('No saved data found, starting fresh');
+                }
+            }
+
+            async updateLeaderboard() {
+                try {
+                    const keys = await window.storage.list('user:', true);
+                    if (!keys || !keys.keys) {
+                        document.getElementById('leaderboardList').innerHTML = '<div style="text-align: center; color: var(--text-secondary); padding: 2rem;">No players yet. Be the first!</div>';
+                        return;
+                    }
+
+                    const players = [];
+                    for (let key of keys.keys) {
+                        try {
+                            const result = await window.storage.get(key, true);
+                            if (result && result.value) {
+                                const userData = JSON.parse(result.value);
+                                players.push(userData);
+                            }
+                        } catch (e) {
+                            console.error('Error loading player:', e);
+                        }
+                    }
+
+                    players.sort((a, b) => b.stats.total - a.stats.total);
+
+                    document.getElementById('totalPlayers').textContent = players.length;
+
+                    const leaderboardHtml = players.slice(0, 10).map((player, index) => {
+                        const isCurrentUser = player.username === this.username;
+                        const rank = index + 1;
+                        const medal = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : `#${rank}`;
+                        
+                        return `
+                            <div class="leaderboard-item ${isCurrentUser ? 'current-user' : ''}">
+                                <div>
+                                    <span style="font-size: 1.2rem; margin-right: 10px;">${medal}</span>
+                                    <strong style="color: ${isCurrentUser ? 'var(--accent)' : 'var(--text)'}">@${player.username}</strong>
+                                </div>
+                                <div style="color: var(--text-secondary);">
+                                    <i class="fas fa-fire"></i> ${player.stats.total}
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+
+                    document.getElementById('leaderboardList').innerHTML = leaderboardHtml;
+                } catch (e) {
+                    console.error('Error updating leaderboard:', e);
+                }
+            }
+
+            async checkAchievements() {
+                if (this.stats.total > 0) await this.unlockAchievement('first_click');
+                if (this.stats.total >= 100) await this.unlockAchievement('century');
+                if (this.stats.total >= 364) await this.unlockAchievement('perfectionist');
+                if (this.stats.longestStreak >= 50) await this.unlockAchievement('streak_master');
+                
+                for (let week = 0; week < this.weeks; week++) {
+                    let fullWeek = true;
+                    for (let day = 0; day < this.daysPerWeek; day++) {
+                        if (parseInt(this.grid[week][day].dataset.level) === 0) {
+                            fullWeek = false;
+                            break;
+                        }
+                    }
+                    if (fullWeek) {
+                        await this.unlockAchievement('full_week');
+                        break;
+                    }
+                }
+
+                await this.unlockAchievement('social');
+            }
+
+            async unlockAchievement(id) {
+                const achievement = this.achievements.find(a => a.id === id);
+                if (achievement && !achievement.unlocked) {
+                    achievement.unlocked = true;
+                    
+                    const unlockedCount = this.achievements.filter(a => a.unlocked).length;
+                    document.getElementById('achievementCount').innerHTML = `${unlockedCount}<span style="font-size: 1.2rem;">/10</span>`;
+                    
+                    this.showNotification(
+                        '🏆 Achievement Unlocked!',
+                        `${achievement.icon} ${achievement.name}: ${achievement.desc}`,
+                        'achievement'
+                    );
+                    
+                    await this.saveUserData();
+                }
+            }
+
+            showNotification(title, message, type = 'info') {
+                const container = document.getElementById('notificationContainer');
+                const notification = document.createElement('div');
+                notification.className = 'notification';
+                
+                const iconClass = type === 'achievement' ? 'achievement' : type === 'success' ? 'success' : 'info';
+                const iconSymbol = type === 'achievement' ? '🏆' : type === 'success' ? '✓' : 'ℹ';
+                
+                notification.innerHTML = `
+                    <div class="notification-icon ${iconClass}">${iconSymbol}</div>
+                    <div class="notification-content">
+                        <div class="notification-title">${title}</div>
+                        <div class="notification-message">${message}</div>
+                        <div class="notification-time">now</div>
+                    </div>
+                `;
+                
+                container.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.classList.add('removing');
+                    setTimeout(() => notification.remove(), 300);
+                }, 4000);
             }
 
             clear() {
@@ -790,7 +988,7 @@
                     }
                 }
                 this.updateStats();
-                this.saveToStorage();
+                this.saveUserData();
             }
 
             randomize() {
@@ -805,212 +1003,66 @@
                     }
                 }
                 this.updateStats();
-                this.saveToStorage();
+                this.saveUserData();
             }
 
-            fillAll() {
-                for (let week = 0; week < this.weeks; week++) {
-                    for (let day = 0; day < this.daysPerWeek; day++) {
-                        this.grid[week][day].dataset.level = 4;
-                        this.grid[week][day].className = 'contribution-cell active-4';
-                    }
-                }
-                this.updateStats();
-                this.saveToStorage();
-            }
-
-            createCheckerboard() {
-                for (let week = 0; week < this.weeks; week++) {
-                    for (let day = 0; day < this.daysPerWeek; day++) {
-                        const level = (week + day) % 2 === 0 ? 4 : 0;
-                        this.grid[week][day].dataset.level = level;
-                        this.grid[week][day].className = 'contribution-cell';
-                        if (level > 0) {
-                            this.grid[week][day].classList.add(`active-${level}`);
-                        }
-                    }
-                }
-                this.updateStats();
-                this.saveToStorage();
-            }
-
-            createWave() {
-                for (let week = 0; week < this.weeks; week++) {
-                    for (let day = 0; day < this.daysPerWeek; day++) {
-                        const level = Math.floor(Math.abs(Math.sin(week * 0.3) * Math.cos(day * 0.8)) * 4) + 1;
-                        this.grid[week][day].dataset.level = level;
-                        this.grid[week][day].className = 'contribution-cell';
-                        if (level > 0) {
-                            this.grid[week][day].classList.add(`active-${level}`);
-                        }
-                    }
-                }
-                this.updateStats();
-                this.saveToStorage();
-            }
-
-            createDiagonal() {
-                this.clear();
-                for (let week = 0; week < this.weeks; week++) {
-                    const day = (week * 2) % this.daysPerWeek;
-                    if (day < this.daysPerWeek) {
-                        this.grid[week][day].dataset.level = 4;
-                        this.grid[week][day].className = 'contribution-cell active-4';
-                    }
-                }
-                this.updateStats();
-                this.saveToStorage();
-            }
-
-            createHeart() {
-                this.clear();
-                const heartPattern = [
-                    [0,1,1,0,1,1,0],
-                    [1,1,1,1,1,1,1],
-                    [1,1,1,1,1,1,1],
-                    [0,1,1,1,1,1,0],
-                    [0,0,1,1,1,0,0],
-                    [0,0,0,1,0,0,0]
-                ];
+            async exportImage() {
+                const grid = document.getElementById('contributionGrid');
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
                 
-                const startWeek = Math.floor(this.weeks / 2) - 3;
-                for (let i = 0; i < heartPattern.length && startWeek + i < this.weeks; i++) {
-                    for (let j = 0; j < heartPattern[i].length; j++) {
-                        if (heartPattern[i][j] === 1) {
-                            this.grid[startWeek + i][j].dataset.level = 4;
-                            this.grid[startWeek + i][j].className = 'contribution-cell active-4';
-                        }
-                    }
-                }
-                this.updateStats();
-                this.saveToStorage();
-            }
-
-            createSmile() {
-                this.clear();
-                const smilePattern = [
-                    [0,1,1,1,1,1,0],
-                    [1,0,0,0,0,0,1],
-                    [0,1,0,0,0,1,0],
-                    [0,0,0,0,0,0,0],
-                    [0,1,0,0,0,1,0],
-                    [0,0,1,1,1,0,0]
-                ];
+                const cellSize = 16;
+                const gap = 4;
+                const padding = 60;
+                canvas.width = this.weeks * (cellSize + gap) + padding * 2;
+                canvas.height = this.daysPerWeek * (cellSize + gap) + padding * 2;
                 
-                const startWeek = Math.floor(this.weeks / 2) - 3;
-                for (let i = 0; i < smilePattern.length && startWeek + i < this.weeks; i++) {
-                    for (let j = 0; j < smilePattern[i].length; j++) {
-                        if (smilePattern[i][j] === 1) {
-                            this.grid[startWeek + i][j].dataset.level = 3;
-                            this.grid[startWeek + i][j].className = 'contribution-cell active-3';
-                        }
-                    }
-                }
-                this.updateStats();
-                this.saveToStorage();
-            }
-
-            savePattern() {
-                const pattern = [];
+                ctx.fillStyle = '#0c0c1d';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                ctx.fillStyle = '#00ff9d';
+                ctx.font = 'bold 20px "Share Tech Mono"';
+                ctx.fillText(`@${this.username}`, padding, padding - 20);
+                
                 for (let week = 0; week < this.weeks; week++) {
-                    pattern[week] = [];
                     for (let day = 0; day < this.daysPerWeek; day++) {
-                        pattern[week][day] = parseInt(this.grid[week][day].dataset.level);
+                        const level = parseInt(this.grid[week][day].dataset.level);
+                        const x = week * (cellSize + gap) + padding;
+                        const y = day * (cellSize + gap) + padding;
+                        
+                        if (level === 0) ctx.fillStyle = 'rgba(255, 255, 255, 0.03)';
+                        else if (level === 1) ctx.fillStyle = 'rgba(0, 255, 157, 0.3)';
+                        else if (level === 2) ctx.fillStyle = 'rgba(0, 255, 157, 0.5)';
+                        else if (level === 3) ctx.fillStyle = 'rgba(0, 255, 157, 0.7)';
+                        else ctx.fillStyle = '#00ff9d';
+                        
+                        ctx.fillRect(x, y, cellSize, cellSize);
+                        ctx.strokeStyle = 'rgba(0, 255, 157, 0.2)';
+                        ctx.lineWidth = 1;
+                        ctx.strokeRect(x, y, cellSize, cellSize);
                     }
                 }
-                localStorage.setItem('savedPattern', JSON.stringify(pattern));
-                alert('✅ Pattern saved successfully!');
-            }
-
-            loadPattern() {
-                const saved = localStorage.getItem('savedPattern');
-                if (saved) {
-                    const pattern = JSON.parse(saved);
-                    for (let week = 0; week < this.weeks && week < pattern.length; week++) {
-                        for (let day = 0; day < this.daysPerWeek && day < pattern[week].length; day++) {
-                            const level = pattern[week][day];
-                            this.grid[week][day].dataset.level = level;
-                            this.grid[week][day].className = 'contribution-cell';
-                            if (level > 0) {
-                                this.grid[week][day].classList.add(`active-${level}`);
-                            }
-                        }
-                    }
-                    this.updateStats();
-                    alert('📂 Pattern loaded successfully!');
-                } else {
-                    alert('❌ No saved pattern found!');
-                }
-            }
-
-            saveToStorage() {
-                const pattern = [];
-                for (let week = 0; week < this.weeks; week++) {
-                    pattern[week] = [];
-                    for (let day = 0; day < this.daysPerWeek; day++) {
-                        pattern[week][day] = parseInt(this.grid[week][day].dataset.level);
-                    }
-                }
-                localStorage.setItem('currentPattern', JSON.stringify(pattern));
-            }
-
-            loadFromStorage() {
-                const saved = localStorage.getItem('currentPattern');
-                if (saved) {
-                    const pattern = JSON.parse(saved);
-                    for (let week = 0; week < this.weeks && week < pattern.length; week++) {
-                        for (let day = 0; day < this.daysPerWeek && day < pattern[week].length; day++) {
-                            const level = pattern[week][day];
-                            this.grid[week][day].dataset.level = level;
-                            this.grid[week][day].className = 'contribution-cell';
-                            if (level > 0) {
-                                this.grid[week][day].classList.add(`active-${level}`);
-                            }
-                        }
-                    }
-                    this.updateStats();
-                }
-            }
-
-            setupKeyboardControls() {
-                document.addEventListener('keydown', (e) => {
-                    switch(e.key.toLowerCase()) {
-                        case 'c':
-                            this.clear();
-                            break;
-                        case 'r':
-                            this.randomize();
-                            break;
-                        case 'f':
-                            this.fillAll();
-                            break;
-                    }
+                
+                canvas.toBlob(blob => {
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `${this.username}-contribution-matrix.png`;
+                    a.click();
+                    URL.revokeObjectURL(url);
+                    this.unlockAchievement('exporter');
+                    this.showNotification('Exported!', 'Your contribution matrix has been downloaded', 'success');
                 });
-            }
-
-            showTooltip(e) {
-                const tooltip = document.getElementById('tooltip');
-                const level = e.target.dataset.level;
-                const week = e.target.dataset.week;
-                const day = e.target.dataset.day;
-                
-                const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-                tooltip.textContent = `${days[day]} | Week ${parseInt(week) + 1} | Level: ${level}`;
-                tooltip.style.display = 'block';
-                tooltip.style.left = e.pageX + 15 + 'px';
-                tooltip.style.top = e.pageY + 15 + 'px';
-            }
-
-            hideTooltip() {
-                const tooltip = document.getElementById('tooltip');
-                tooltip.style.display = 'none';
             }
         }
 
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            createDragonSeeds();
-            window.game = new ContributionGame();
+        let game;
+        document.addEventListener('DOMContentLoaded', () => {
+            game = new ContributionGame();
+            
+            document.getElementById('usernameInput').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') game.setUsername();
+            });
         });
     </script>
 </body>
