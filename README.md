@@ -556,7 +556,7 @@ It helps others discover this awesome tool.
     |      ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝   |
     |                                                           |
     |   Made with 💚 by the Community                          |
-    |   Powered by Van_Dragon Codex & Claude AI                |
+    |                 |
     |                                                           |
     |___________________________________________________________|
 
